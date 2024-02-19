@@ -11,17 +11,17 @@ public class Main {
         }
     }
 
-    public static int sumSevens(int n1, int n2) { //but where do i define sum..?
+    public static int sumSevens(int n1, int n2) {
 
-        if (n2 == n1) {
-            return sum;
-        } //Stop at n1 so it's between
+        if (n2 == n1-1) {
+            return 0;
+        } //Stop at n1-1 so it's between INCLUSIVE
         else {
             if (n2 % 7 == 0) {
-                sum += n2;
+                return n2+sumSevens(n1,n2-1); //The Recursive Call
             }
-            sumSevens(n2-1); //The Recursive Call
         }
+        return sumSevens(n1,n2-1);
     }
 
     public static int binSearch(int[] arr, int num) {
@@ -30,8 +30,8 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Start:");
-        printHello(10);
-        //System.out.println(sumSevens(0,28));
+        //printHello(10);
+        System.out.println(sumSevens(7,28));
     }
 }
 
